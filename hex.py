@@ -12,3 +12,11 @@ if(debug):
     print("inp: "+inp)
 
 #YOUR CODE HERE!
+pairs=[(key[i%len(key)],inp[i]) for i in range(len(inp))]
+
+if mode=='human':
+    xor=[chr(ord(a)^ord(b)) for a,b in pairs]
+    print(''.join(xor))
+else:
+    xor = [hex(ord(a) ^ ord(b))[2:] for a, b in pairs]
+    print(' '.join(xor))
