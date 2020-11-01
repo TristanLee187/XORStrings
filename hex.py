@@ -12,11 +12,15 @@ if(debug):
     print("inp: "+inp)
 
 #YOUR CODE HERE!
+
+#create a list of tuples with each pair of letters in the key and text. loop the key string if necessary
 pairs=[(key[i%len(key)],inp[i]) for i in range(len(inp))]
 
 if mode=='human':
+    #xor the ASCII values of each letter in the pair, and get the corresponding character
     xor=[chr(ord(a)^ord(b)) for a,b in pairs]
     print(''.join(xor))
 else:
+    #xor the ASCII values of each letter in the pair, and get the corresponding hex number
     xor = [hex(ord(a) ^ ord(b))[2:] for a, b in pairs]
     print(' '.join(xor))
